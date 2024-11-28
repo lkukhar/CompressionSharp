@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using CompressionSharp.Common;
 using CompressionSharp.Core;
 
 namespace CompressionSharp.Benchmarks;

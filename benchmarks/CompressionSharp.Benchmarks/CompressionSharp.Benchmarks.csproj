@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\CompressionSharp.Common\CompressionSharp.Common.csproj" />
     <ProjectReference Include="..\..\src\CompressionSharp.Core\CompressionSharp.Core.csproj" />
   </ItemGroup>
 
