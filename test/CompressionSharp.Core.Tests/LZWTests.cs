@@ -10,11 +10,4 @@ public class LZWTests
         var compressed = LZW.Compress(LoremIpsum.Text);
         Assert.Equal(LoremIpsum.Bytes, compressed);
     }
-
-    [Fact]
-    public void DecompressTest()
-    {
-        var decompressed = LZW.Decompress(LoremIpsum.Bytes);
-        Assert.Equal(LoremIpsum.Text, decompressed);
-    }
 }

@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace CompressionSharp.Core;
+﻿namespace CompressionSharp.Core;
 
 public static class LZW
 {
@@ -35,37 +33,5 @@ public static class LZW
         }
 
         return [.. result];
-    }
-
-    public static string Decompress(IEnumerable<byte> compressed)
-    {
-        var compressedList = compressed.ToList();
-        var dictionary = new Dictionary<byte, string>();
-        for (ushort i = 0; i < 256; i++)
-        {
-            dictionary.Add((byte)i, ((char)i).ToString());
-        }
-
-        string w = dictionary[compressedList[0]];
-        compressedList.RemoveAt(0);
-        StringBuilder decompressed = new(w);
-
-        foreach (byte k in compressed)
-        {
-            string entry = null;
-            if (dictionary.ContainsKey(k))
-                entry = dictionary[k];
-            else if (k == dictionary.Count)
-                entry = w + w[0];
-
-            decompressed.Append(entry);
-
-            // new sequence; add it to the dictionary
-            dictionary.Add((byte)dictionary.Count, w + entry[0]);
-
-            w = entry;
-        }
-
-        return decompressed.ToString();
     }
 }
